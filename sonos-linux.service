@@ -1,0 +1,13 @@
+[Unit]
+Description=Sonos Linux Audio Streaming
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/lib/sonos-linux/sonos-linux
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=graphical-session.target
