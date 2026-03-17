@@ -34,15 +34,33 @@ sudo apt install pulseaudio-utils ffmpeg python3-gi gir1.2-gtk-3.0
 
 ## Install
 
+### From .deb (recommended)
+
+Download the latest `.deb` from [Releases](../../releases), then:
+
+```bash
+sudo dpkg -i sonos-linux_*.deb
+systemctl --user enable --now sonos-linux
+```
+
+### From source
+
 ```bash
 make build
 sudo make install
 make enable
 ```
 
-Installs the binary and tray script to `/usr/local/lib/sonos-linux/`, symlinks `/usr/local/bin/sonos-linux`, and sets up a systemd user service that starts immediately and on every login.
-
 ## Uninstall
+
+### .deb
+
+```bash
+systemctl --user disable --now sonos-linux
+sudo dpkg -r sonos-linux
+```
+
+### From source
 
 ```bash
 sudo make uninstall
@@ -158,3 +176,7 @@ sonos-linux/
 ├── go.mod
 └── go.sum
 ```
+
+## Disclaimer
+
+This project is not affiliated with, endorsed by, or associated with Sonos, Inc. in any way. Sonos is a registered trademark of Sonos, Inc. This is an independent open-source project that uses publicly available UPnP/SOAP protocols to communicate with Sonos devices on your local network.
