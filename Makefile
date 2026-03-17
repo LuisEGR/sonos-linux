@@ -3,7 +3,7 @@ LIBDIR       := $(PREFIX)/lib/sonos-linux
 BINDIR       := $(PREFIX)/bin
 SYSTEMD_USER := /usr/lib/systemd/user
 BINARY       := sonos-linux
-VERSION      ?= $(shell git describe --tags --always 2>/dev/null || echo "0.0.0")
+VERSION      ?= $(shell git describe --tags --always 2>/dev/null | sed 's/^v//' || echo "0.0.0")
 
 .PHONY: build install uninstall enable disable deb clean
 
